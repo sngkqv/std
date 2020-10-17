@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import HomeContainer from './containers/Home'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   
