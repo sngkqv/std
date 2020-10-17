@@ -32,7 +32,7 @@ class HomeContainer extends Component {
     }
 
     getAllPosts = () => {
-        Axios.get("http://13.232.164.94:7001/studiendo/discussionBoard/getAllPosts").then(res => {
+        Axios.get("http://13.232.164.94:7001/studiendo/discussionBoard/getAllPosts/").then(res => {
             this.setState({ postsCount: res.data.data.length, posts: res.data.data })
         }).catch(err => {
             console.error(err)
