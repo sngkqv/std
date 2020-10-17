@@ -21,7 +21,7 @@ class HomeContainer extends Component {
     }
 
     getAllUsers = () => {
-        Axios.get("http://13.232.164.94:7001/studiendo/users/getAllUsers").then(res => {
+        Axios.get("http://13.232.164.94:7001/studiendo/users/getAllUsers/").then(res => {
             console.log(res.data.data)
             this.setState({ usersCount: res.data.data.length, users: res.data.data })
         }).catch(err => {
@@ -30,7 +30,7 @@ class HomeContainer extends Component {
     }
 
     getAllPosts = () => {
-        Axios.get("http://13.232.164.94:7001/studiendo/discussionBoard/getAllPosts").then(res => {
+        Axios.get("http://13.232.164.94:7001/studiendo/discussionBoard/getAllPosts/").then(res => {
             this.setState({ postsCount: res.data.data.length, posts: res.data.data })
         }).catch(err => {
             console.error(err)
