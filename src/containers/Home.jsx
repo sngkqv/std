@@ -1,3 +1,4 @@
+import { LinearProgress } from '@material-ui/core';
 import Axios from 'axios';
 import React from 'react';
 import { Component, Fragment } from "react";
@@ -11,19 +12,20 @@ class HomeContainer extends Component {
         usersCount: 0,
         postsCount: 0,
         users: [],
-        posts: []
+        posts: [],
+        loading: false
 
     }
 
     componentDidMount() {
+        this.setState({loading: true})
        this.getAllUsers();
        // this.getAllPosts();
     }
 
     getAllUsers = () => {
         Axios.get("http://13.232.164.94:7001/studiendo/users/getAllUsers").then(res => {
-            console.log(res.data.data)
-            this.setState({ usersCount: res.data.data.length, users: res.data.data })
+            this.setState({ usersCount: res.data.data.length, users: res.data.data, loading: false })
         }).catch(err => {
             console.error(err)
         })
@@ -40,6 +42,7 @@ class HomeContainer extends Component {
 
     render() {
         return (<Fragment>
+            {this.state.loading && <LinearProgress/>}
             <div className="row">
                 <div className="col-md-4 offset-md-4">
                 <UserBox count={this.state.usersCount} />
